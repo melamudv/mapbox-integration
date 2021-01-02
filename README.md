@@ -26,6 +26,7 @@ Angular Material + Ionic
 
 Was deployment to aws s3 bucket 
 With static web hosting [aws s3](http://mapbox-integration.s3-website.eu-central-1.amazonaws.com/)
+[http://mapbox-integration.s3-website.eu-central-1.amazonaws.com/](http://mapbox-integration.s3-website.eu-central-1.amazonaws.com/)
 
 ## Built With
 
@@ -35,7 +36,7 @@ With static web hosting [aws s3](http://mapbox-integration.s3-website.eu-central
 
 ## Authors
 
-* **Melamud Vitaliy** - *MapBox Integration* - [PurpleBooth](https://github.com/melamudv)
+* **Melamud Vitaliy** - *MapBox Integration* - [Melamud Vitaliy](https://github.com/melamudv)
 
 ## License
 

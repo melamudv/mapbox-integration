@@ -1,8 +1,8 @@
 <div  fxLayout="column">
   <div fxLayout="row" fxLayoutAlign="center start">
-    <div style="position: relative;width:100%" >
-      <ion-searchbar debounce=500 (ionChange)="search($event)" [value]="selectedAddress"></ion-searchbar>
-      <div style="position: absolute; width: 100%; z-index: 999;">
+    <div class="search-wrapper" >
+      <ion-searchbar debounce=500 (ionChange)="search($event)" [value]="selectedAddress" placeholder="Start Write"></ion-searchbar>
+      <div class="auto-complite">
         <ion-list lines="none" *ngIf="addresses.length > 0">
           <ion-item button *ngFor="let address of addresses" (click)="onSelect(address)">
             <ion-icon name="pin"></ion-icon>
@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-  <div fxLayout="column" fxLayoutAlign="center start" >
+  <div fxLayout="row" fxLayoutAlign="center start" class="button-wrapper">
     <button mat-raised-button color="primary" class="action-button" (click)="onClick('point')">Point</button>
     <button mat-raised-button color="primary" class="action-button" (click)="onClick('line')">Line</button>
     <button mat-raised-button color="primary" class="action-button" (click)="onClick('polygon')">Polygon</button>

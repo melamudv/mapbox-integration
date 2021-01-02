@@ -10,7 +10,6 @@ import { LeftSideComponent } from './left-side/left-side.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {FormsModule} from '@angular/forms';
-import { LeftSideInteractionsComponent } from './left-side-interactions/left-side-interactions.component';
 import {MatButtonModule} from '@angular/material/button';
 import {HttpClientModule} from '@angular/common/http';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -26,8 +25,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
   declarations: [
     AppComponent,
     MapComponent,
-    LeftSideComponent,
-    LeftSideInteractionsComponent
+    LeftSideComponent
   ],
   imports: [
     BrowserModule,

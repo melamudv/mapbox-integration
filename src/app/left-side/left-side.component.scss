@@ -10,4 +10,17 @@
   padding-left:10px;
   font-size: 14px;
   font-weight: bold;
+  width:170px;
+}
+.auto-complite{
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+}
+.search-wrapper{
+  position: relative;
+  width:100%
+}
+.button-wrapper{
+  padding-bottom: 20px;
 }

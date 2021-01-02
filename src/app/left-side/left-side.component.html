@@ -1,0 +1,27 @@
+<div  fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="center start">
+    <div style="position: relative;width:100%" >
+      <ion-searchbar debounce=500 (ionChange)="search($event)" [value]="selectedAddress"></ion-searchbar>
+      <div style="position: absolute; width: 100%; z-index: 999;">
+        <ion-list lines="none" *ngIf="addresses.length > 0">
+          <ion-item button *ngFor="let address of addresses" (click)="onSelect(address)">
+            <ion-icon name="pin"></ion-icon>
+            {{ address.place_name }}
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center start" >
+    <button mat-raised-button color="primary" class="action-button" (click)="onClick('point')">Point</button>
+    <button mat-raised-button color="primary" class="action-button" (click)="onClick('line')">Line</button>
+    <button mat-raised-button color="primary" class="action-button" (click)="onClick('polygon')">Polygon</button>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center start">
+    <div fxLayout="row" fxLayoutAlign="center start" *ngFor="let annotation of annotations">
+      <div class="annotation-title">{{annotation.place_name}}</div>
+      <div><button mat-raised-button color="primary" class="action-button" (click)="onView(annotation.center)">View</button></div>
+      <div><button mat-raised-button color="primary" class="action-button" (click)="onDelete(annotation.idFirebase)">Delete</button></div>
+    </div>
+  </div>
+</div>

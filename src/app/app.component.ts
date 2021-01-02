@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'intel-test-home';
+  figure = null;
+  address = null;
+  viewAddress = null;
 }

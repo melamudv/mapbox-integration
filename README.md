@@ -1,27 +1,48 @@
 # MapBox Integration
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+Use Angular9 with Mapbox 
+Angular Material + Ionic framework
+All data saved with Firebase
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+npm install
+npm serve
 
-## Code scaffolding
+### Installing
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Node v12 and latest
 
-## Build
+## Running the tests
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Skeleton ready for test but not implemented
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### And coding style tests
 
-## Running end-to-end tests
+Angular Material + Ionic
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Deployment
 
-## Further help
+Was deployment to aws s3 bucket 
+With static web hosting [aws s3](http://mapbox-integration.s3-website.eu-central-1.amazonaws.com/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+
+## Authors
+
+* **Melamud Vitaliy** - *MapBox Integration* - [PurpleBooth](https://github.com/melamudv)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc

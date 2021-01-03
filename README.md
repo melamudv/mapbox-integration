@@ -22,18 +22,20 @@ Skeleton ready for test but not implemented
 
 Angular Material + Ionic
 
+## Built With
+
+* [Angular](https://angular.io/) - The web framework used
+* [Firebase](https://firebase.google.com/) - API calls + datastore
+* [AngularMaterial](https://material.angular.io/) - Design Framework
+* [Ionic](https://ionicframework.com/) - Design Framework only for test framework
+* [MapboxGl](https://rometools.github.io/rome/) - MapBox
+* [MapboxGlDraw](https://rometools.github.io/rome/) - MapBox
+
 ## Deployment
 
 Was deployment to aws s3 bucket 
 With static web hosting [aws s3](http://mapbox-integration.s3-website.eu-central-1.amazonaws.com/)
 [http://mapbox-integration.s3-website.eu-central-1.amazonaws.com/](http://mapbox-integration.s3-website.eu-central-1.amazonaws.com/)
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
 ## Authors
 
 * **Melamud Vitaliy** - *MapBox Integration* - [Melamud Vitaliy](https://github.com/melamudv)

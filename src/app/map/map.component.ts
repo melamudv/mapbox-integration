@@ -1,9 +1,9 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import {environment} from '../../environments/environment';
-import {AngularFirestore} from '@angular/fire/firestore';
 import Annotation from '../store/annotations.model';
 import {AnnotationsService} from '../annotations.service';
+import * as MapboxDraw from '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw';
 
 @Component({
   selector: 'app-map',
@@ -15,11 +15,11 @@ export class MapComponent implements OnInit, OnChanges {
   @Input() address: any;
   @Input() viewAddress: any;
   map: mapboxgl.Map;
-  style = 'mapbox://styles/mapbox/streets-v11';
+  style = 'mapbox://styles/mapbox/dark-v9';
   lat;
   lng;
-  coordinates;
   annotations: Annotation[];
+  draw;
   constructor(private annotationsService: AnnotationsService) { }
 
   ngOnInit() {
@@ -29,10 +29,13 @@ export class MapComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes?.figure?.currentValue){
       if (changes.figure.currentValue === 'point') {
-        this.drawFigurePoint(changes.figure.currentValue);
+        this.drawFigurePoint();
       }
       if (changes.figure.currentValue === 'line') {
-        this.drawFigureLine(changes.figure.currentValue);
+        this.drawFigureLine();
+      }
+      if (changes.figure.currentValue === 'polygon') {
+        this.drawFigurePolygon();
       }
 
     }
@@ -57,26 +60,57 @@ export class MapComponent implements OnInit, OnChanges {
     this.map.flyTo({ center: address });
   }
 
-  drawFigurePoint(value){
+  drawFigurePoint(){
+    if(this.draw){
+      this.map.removeControl(this.draw);
+    }
     const center = this.map.getCenter();
+    const popup = new mapboxgl.Popup({offset:[0, -30]})
+      .setText('Position ' + center);
     this.map.flyTo({ center: [center.lng, center.lat] });
     const marker = new mapboxgl.Marker({draggable: true})
       .setLngLat([center.lng, center.lat])
       .addTo(this.map);
     marker.on('dragend', onDragEnd);
+    const popupMarker = new mapboxgl.Marker({draggable: true})
+      .setLngLat([center.lng, center.lat])
+      .setPopup(popup)
+      .getPopup()
+      .addTo(this.map);
 
 
     function onDragEnd() {
-      const lngLat = marker.getLngLat();
-      this.coordinates = this.document.getElementById('coordinates');
-      this.coordinates.style.display = 'block';
-      this.coordinates.innerHTML =
-        'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+      popupMarker.remove();
     }
   }
 
-  drawFigureLine(value){
-
+  drawFigureLine(){
+    if(this.draw){
+      this.map.removeControl(this.draw);
+    }
+    this.draw = new MapboxDraw({
+      displayControlsDefault: false,
+      controls: {
+        polygon: false,
+        line_string: true,
+        trash: true
+      }
+    });
+    this.map.addControl(this.draw);
+  }
+  drawFigurePolygon(){
+    if(this.draw){
+      this.map.removeControl(this.draw);
+    }
+    this.draw = new MapboxDraw({
+      displayControlsDefault: false,
+      drawing: true,
+      controls: {
+        polygon: true,
+        trash: true
+      }
+    });
+    this.map.addControl(this.draw);
   }
 
   initializeMap() {
